@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/patient_details" method="post">
+        {% csrf_token %}
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" value="John"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" value="Doe"><br><br>
+        <label for="fname">BLOOD-GROUP</label><br>
+        <input type="text" id="blood_group" name="blood_group" ><br>
+        <label for="lname">AGE</label><br>
+        <input type="text" id="age" name="age" ><br><br>
+        <label for="fname">WEIGHT</label><br>
+        <input type="text" id="weight" name="weight" ><br>
+        <label for="lname">CONTACT</label><br>
+        <input type="text" id="contact" name="contact" ><br><br>
+        <label for="fname">ADDRESS</label><br>
+        <input type="text" id="address" name="address" ><br>
+        <label for="lname">REFRENCE-PERSON</label><br>
+        <input type="text" id="rperson" name="rperson" ><br><br>
+        
+        <input type="submit" value="Submit">
+      </form> 
+</body>
+</html>

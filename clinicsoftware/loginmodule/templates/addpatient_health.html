@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+</head>
+<body>
+    {{patient.fname}} <br>{{patient.lname}}<br> {{patient.blood_group}} <br>{{patient.age}}<br> 
+    <form action="{% url 'patient_health_details' pid %}" method="post">
+        {% csrf_token %}
+        <label for="SYMPTOMS">SYMPTOMS</label><br>
+        <input type="text" id="symptoms" name="symptoms" ><br><br>
+        <label for="DIAGNOSTIC">DIAGNOSTIC</label><br>
+        <input type="text" id="diagnostic" name="diagnostic" ><br><br>
+        <label for="PRESCRIPTION">PRESCRIPTION</label><br>
+        <select class="selectpicker" name="prescription" id="prescription" multiple data-live-search="true">
+            {% for m in medi%}
+            <option>{{m.medicine_name}} </option>
+            {%endfor%}
+        </select>
+        <!--<input type="text" id="prescription" name="prescription" >--><br><br>
+        <label for="REPORT">REPORT</label><br>
+        <input type="text" id="report" name="report" ><br>
+        <label for="FEES">FEES</label><br>
+        <input type="number" id="fees" name="fees" ><br>
+        <label for="PAID">PAID</label><br>
+        <input type="number" id="paid" name="paid" ><br>
+        
+
+        <input type="submit" value="Submit">
+    </form> 
+</body>
+</html>

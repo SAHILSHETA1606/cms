@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    </head>
+<body>
+    
+<form action="{% url 'create_group' %}" method="post">
+{% csrf_token %}
+    <label for="group">CREATE GROUP HERE:-</label>
+    <select class="selectpicker" name="mselect" id="mselect" multiple data-live-search="true">
+        {% for p in patient%}
+        <option>{{p.id}}:{{p.fname}} {{p.lname}} </option>
+        {%endfor%}
+    </select>
+<br>
+    <label for="NAME">NAME OF GROUP</label><br>
+    <input type="text" id="gname" name="gname" ><br>
+        
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>

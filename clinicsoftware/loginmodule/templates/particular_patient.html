@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- HERE p.id IS NOT PATIENT ID BUT IT IS VISIT ID IN patient_health_detail CALLED PATIENT_VISIT -->
+    {% for p in patient %} 
+   <a href="{% url 'summary' p.id id %}"> 
+    {{p.fname}} {{p.lname}} {{p.time}} {{p.date}}<br>
+    </a>
+    {%endfor%}
+    
+</body>
+</html>
